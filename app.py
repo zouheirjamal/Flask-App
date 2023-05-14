@@ -16,10 +16,7 @@ def analyze_file_1(filename):
     input_data = [filename]  # Input data for prediction
     predictions = model.predict(input_data)
     # Perform further processing or use the predictions as desired
-    if predictions == 1:
-        return 1
-    else:
-        return 0
+    return predictions
 
 
 @app.route('/', methods=['POST'])
