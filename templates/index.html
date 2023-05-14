@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Credential Finder</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Credential Finder</h1>
+      <form method="POST" enctype="multipart/form-data">
+        <div class="form-group">
+          <label for="file">Upload a file:</label>
+          <input type="file" name="file" class="input-file" id="file" class="form-control-file" />
+        </div>
+        <div class="form-group">
+          <label for="algorithm">Select an algorithm:</label>
+          <select name="algorithm" id="algorithm" class="form-control">
+            <option value="1">Naive Bayes Model</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Predict</button>
+      </form>
+      {% if result is not none and file_uploaded %}
+      <div class="result-container">
+        {% if result == 1 %}
+        <p class="result-clean">The file is clean.</p>
+        {% else %}
+        <p class="result-dirty">The file is dirty.</p>
+        {% endif %}
+      </div>
+      {% endif %}
+  </body>
+</html>
